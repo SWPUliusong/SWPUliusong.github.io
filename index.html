@@ -146,6 +146,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mongodb修改器整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/15/mongodb修改器整理/">mongodb修改器整理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/15/mongodb修改器整理/" class="archive-article-date">
+  	<time datetime="2017-12-15T03:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="inc"><a href="#inc" class="headerlink" title="$inc"></a>$inc</h2><p>对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;zhangsan&quot;, </span><br><span class="line">    &quot;age&quot; : 18, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$inc: &#123;age: 2&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;zhangsan&quot;, </span><br><span class="line">    &quot;age&quot; : 20, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/12/15/mongodb修改器整理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/15/mongodb修改器整理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-利用hexo构建github-page" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,26 +252,9 @@
 <li>node.js</li>
 </ol>
 <h2 id="一、全局安装hexo"><a href="#一、全局安装hexo" class="headerlink" title="一、全局安装hexo"></a>一、全局安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm i -g hexo</span><br></pre></td></tr></table></figure>
-<h2 id="二、初始化文件"><a href="#二、初始化文件" class="headerlink" title="二、初始化文件"></a>二、初始化文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; mkdir blog  // 文件夹名随意</span><br><span class="line">&gt; cd ./blog</span><br><span class="line">&gt; hexo init</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fmfiiy7pmtj30ux0k8h7h.jpg" alt=""></p>
-<p>此时执行 <code>hexo s</code> 就能看到默认主题样式</p>
-<p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fmfio4i0nyj311q0j647p.jpg" alt=""></p>
-<h2 id="三、修改配置和主题"><a href="#三、修改配置和主题" class="headerlink" title="三、修改配置和主题"></a>三、修改配置和主题</h2><p>编辑器打开文件夹，修改根目录下的<code>_config.yml</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 网站主标题</span><br><span class="line">title: Hexo</span><br><span class="line"># 网站描述(可用于SEO)</span><br><span class="line">description: html,css,js,javascript</span><br><span class="line"># 作者</span><br><span class="line">author: SWPUliusong</span><br></pre></td></tr></table></figure></p>
-<p>默认主题采用了<code>landscape</code>,这里修改成<code>yilia</code><br>github搜索yilia，star最多的那个，复制git地址,终端执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fmfjn1stn1j311y0kgn0o.jpg" alt=""></p>
-<p>修改根目录<code>_config.yml</code>文件<code>theme</code>字段为<code>yilia</code>，重新执行<code>hexo s</code>，打开浏览器就能看到主题样式</p>
-<p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fmfjsf72cgj311v0jeabh.jpg" alt=""></p>
-<blockquote>
-<p><strong>此时打开<code>theme/yilia</code>主题文件夹下的<code>_config.yml</code>，按照主题作者的注释配置博客</strong></p>
-</blockquote>
-<h2 id="四、发布"><a href="#四、发布" class="headerlink" title="四、发布"></a>四、发布</h2><p>修改根目录下<code>_config.yml</code>文件的<code>deploy</code>字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/你的名字/你的名字.github.io.git   //git仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 生成静态文件</span><br><span class="line">&gt; hexo g</span><br><span class="line">// 发布到配置的仓库</span><br><span class="line">&gt; hexo d</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注意：发布前必须先在github创建这个仓库</p>
-<p>发布文章、页面等规则参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档</a></p>
-</blockquote>
-<p>然后就可以打开<a href="https://你的名字.github.io/了" target="_blank" rel="noopener">https://你的名字.github.io/了</a></p>
-
+        
+          <a class="article-more-a" href="/2017/12/13/利用hexo构建github-page/#more">more >></a>
+        
       
 
       
@@ -332,6 +396,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -388,7 +460,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://lizhao.pw/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>lizhao</a>
+              <a href="http://lizhao.pw/" target="_blank" class="search-title">
+                <img style="width: 48px; height: 48px; border-radius: 5px;" src="http://lizhao.pw/styles/images/me/me.png" alt="lizhao">
+                <span style="vertical-align: top; margin-left: 1em;">lizhao</span>
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://yihongxian.github.io/" target="_blank" class="search-title">
+                <img style="width: 48px; height: 48px; border-radius: 5px;" src="https://avatars0.githubusercontent.com/u/14807369?s=400&v=4" alt="yihongxian">
+                <span style="vertical-align: top; margin-left: 1em;">yihongxian</span>
+              </a>
             </li>
           
         </ul>

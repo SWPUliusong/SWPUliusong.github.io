@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>Tag: hexo | 个人博客</title>
+  <title>mongodb修改器整理 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端,html,javascript,css,nodejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://SWPUliusong.github.io/tags/hexo/index.html">
+  <meta name="description" content="$inc对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作 例:12345678910111213141516&amp;gt; db.example.find()&amp;#123;     &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;5a33646dbd1d4cc549a9938b&amp;quot;),     &amp;quot;name&amp;quot; : &amp;quot;zhangsan&amp;q">
+<meta name="keywords" content="mongodb,数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb修改器整理">
+<meta property="og:url" content="https://SWPUliusong.github.io/2017/12/15/mongodb修改器整理/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="前端,html,javascript,css,nodejs">
+<meta property="og:description" content="$inc对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作 例:12345678910111213141516&amp;gt; db.example.find()&amp;#123;     &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;5a33646dbd1d4cc549a9938b&amp;quot;),     &amp;quot;name&amp;quot; : &amp;quot;zhangsan&amp;q">
+<meta property="og:updated_time" content="2017-12-15T12:29:40.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="前端,html,javascript,css,nodejs">
+<meta name="twitter:title" content="mongodb修改器整理">
+<meta name="twitter:description" content="$inc对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作 例:12345678910111213141516&amp;gt; db.example.find()&amp;#123;     &amp;quot;_id&amp;quot; : ObjectId(&amp;quot;5a33646dbd1d4cc549a9938b&amp;quot;),     &amp;quot;name&amp;quot; : &amp;quot;zhangsan&amp;q">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -144,64 +146,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mongodb修改器整理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/13/利用hexo构建github-page/" class="archive-article-date">
-  	<time datetime="2017-12-13T12:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/利用hexo构建github-page/">利用hexo构建github page</a>
+    <h1 class="article-title" itemprop="name">
+      mongodb修改器整理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/12/15/mongodb修改器整理/" class="archive-article-date">
+  	<time datetime="2017-12-15T03:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="inc"><a href="#inc" class="headerlink" title="$inc"></a>$inc</h2><p>对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;zhangsan&quot;, </span><br><span class="line">    &quot;age&quot; : 18, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$inc: &#123;age: 2&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;zhangsan&quot;, </span><br><span class="line">    &quot;age&quot; : 20, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="set"><a href="#set" class="headerlink" title="$set"></a>$set</h2><p>将指定的键值对更新到文档，不修改其他键</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;zhangsan&quot;, </span><br><span class="line">    &quot;age&quot; : 20, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$set: &#123;name: &apos;lisi&apos;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;age&quot; : 20, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="unset"><a href="#unset" class="headerlink" title="$unset"></a>$unset</h2><p>删除文档的键，使用修改器$unset时，不论对目标键使用1、0、-1或者具体的字符串等都是可以删除该目标键</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;age&quot; : 20, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$unset: &#123;age: 1&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123;</span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;),</span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="push"><a href="#push" class="headerlink" title="$push"></a>$push</h2><p>向文档的某个数组类型的键添加一个数组元素，不过滤重复的数据。</p>
+<ul>
+<li>添加时键存在，要求键值类型必须是数组；</li>
+<li>键不存在，则创建数组类型的键</li>
+</ul>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$push: &#123;hobby: &quot;s&quot;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="addToSet"><a href="#addToSet" class="headerlink" title="$addToSet"></a>$addToSet</h2><p>主要给数组类型键值添加一个元素时，避免在数组中产生重复数据</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$addToSet: &#123;hobby: &quot;r&quot;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot;, &quot;r&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$addToSet: &#123;hobby: &quot;bb&quot;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 0 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot;, &quot;r&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="pop"><a href="#pop" class="headerlink" title="$pop"></a>$pop</h2><p>从数组的头或者尾删除数组中的元素  </p>
+<ul>
+<li>从数组的尾部删除 1</li>
+<li>从数组的尾部删除 0</li>
+<li>从数组的头部 -1</li>
+</ul>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot;, &quot;r&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$pop: &#123;hobby: 1&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="pull"><a href="#pull" class="headerlink" title="$pull"></a>$pull</h2><p>从数组中删除满足条件的元素</p>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123;</span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot;, &quot;s&quot; ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$pull: &#123;hobby: &quot;s&quot;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123;</span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组的定位修改器"><a href="#数组的定位修改器" class="headerlink" title="数组的定位修改器"></a>数组的定位修改器</h2><p>在需要对数组中的值进行操作的时候，可通过位置或者定位操作符（”$”）.数组是0开始的，可以直接将下标作为键来选择元素</p>
+<ul>
+<li>若为多个文档满足条件，则只更新第一个文档。</li>
+<li>定位符(“$”)代表查询条件匹配到的子文档位置</li>
+</ul>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ], </span><br><span class="line">    &quot;comments&quot; : [ </span><br><span class="line">        &#123; &quot;count&quot; : 10, &quot;content&quot; : &quot;哈哈&quot; &#125;, </span><br><span class="line">        &#123; &quot;count&quot; : 4, &quot;content&quot; : &quot;嘻嘻&quot; &#125; </span><br><span class="line">    ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;)&#125;, &#123;$inc: &#123;&quot;comments.0.count&quot;: 1&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ], </span><br><span class="line">    &quot;comments&quot; : [ </span><br><span class="line">        &#123; &quot;count&quot; : 11, &quot;content&quot; : &quot;哈哈&quot; &#125;, </span><br><span class="line">        &#123; &quot;count&quot; : 4, &quot;content&quot; : &quot;嘻嘻&quot; &#125; </span><br><span class="line">    ] </span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;comments.count&quot;: 4&#125;, &#123;$set: &#123;&quot;comments.$.content&quot;: &quot;呵呵&quot;&#125;&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ], </span><br><span class="line">    &quot;comments&quot; : [ </span><br><span class="line">        &#123; &quot;count&quot; : 11, &quot;content&quot; : &quot;哈哈&quot; &#125;, </span><br><span class="line">        &#123; &quot;count&quot; : 4, &quot;content&quot; : &quot;呵呵&quot; &#125; </span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="upsert"><a href="#upsert" class="headerlink" title="upsert"></a>upsert</h2><ul>
+<li>布尔值</li>
+<li>update的第三个参数</li>
+<li>为true时表示当没有符合条件的文档，就以这个条件和更新文档为基础创建一个新的文档，如果找到匹配的文档就正常的更新</li>
+</ul>
+<p>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ]</span><br><span class="line">&#125;</span><br><span class="line">&gt; db.example.update(&#123;&quot;comments.count&quot;: 4&#125;, &#123;$set: &#123;age: 20&#125;&#125;, &#123;upsert: true&#125;)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ],</span><br><span class="line">    &quot;age&quot; : 20 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="save函数"><a href="#save函数" class="headerlink" title="save函数"></a>save函数</h2><ul>
+<li>可以在文档不存在的时候插入，存在的时候更新，只有一个参数文档</li>
+<li>要是文档含有”_id”，会调用upsert。否则，会调用插入</li>
+</ul>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;lisi&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ], </span><br><span class="line">    &quot;age&quot; : 20 </span><br><span class="line">&#125;</span><br><span class="line">&gt; var data = db.example.findOne()</span><br><span class="line">&gt; data.name=&quot;张三&quot;</span><br><span class="line">张三</span><br><span class="line">&gt; db.example.save(data)</span><br><span class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)</span><br><span class="line">&gt; db.example.find()</span><br><span class="line">&#123; </span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;5a33646dbd1d4cc549a9938b&quot;), </span><br><span class="line">    &quot;name&quot; : &quot;张三&quot;, </span><br><span class="line">    &quot;hobby&quot; : [ &quot;bb&quot;, &quot;sb&quot;, &quot;tt&quot; ], </span><br><span class="line">    &quot;age&quot; : 20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github page</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://SWPUliusong.github.io/2017/12/15/mongodb修改器整理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/13/利用hexo构建github-page/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用hexo构建github page</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#inc"><span class="toc-number">1.</span> <span class="toc-text"><a href="#inc" class="headerlink" title="$inc"></a>$inc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">2.</span> <span class="toc-text"><a href="#set" class="headerlink" title="$set"></a>$set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unset"><span class="toc-number">3.</span> <span class="toc-text"><a href="#unset" class="headerlink" title="$unset"></a>$unset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">4.</span> <span class="toc-text"><a href="#push" class="headerlink" title="$push"></a>$push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#addToSet"><span class="toc-number">5.</span> <span class="toc-text"><a href="#addToSet" class="headerlink" title="$addToSet"></a>$addToSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pop"><span class="toc-number">6.</span> <span class="toc-text"><a href="#pop" class="headerlink" title="$pop"></a>$pop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">7.</span> <span class="toc-text"><a href="#pull" class="headerlink" title="$pull"></a>$pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的定位修改器"><span class="toc-number">8.</span> <span class="toc-text"><a href="#&#x6570;&#x7EC4;&#x7684;&#x5B9A;&#x4F4D;&#x4FEE;&#x6539;&#x5668;" class="headerlink" title="&#x6570;&#x7EC4;&#x7684;&#x5B9A;&#x4F4D;&#x4FEE;&#x6539;&#x5668;"></a>&#x6570;&#x7EC4;&#x7684;&#x5B9A;&#x4F4D;&#x4FEE;&#x6539;&#x5668;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#upsert"><span class="toc-number">9.</span> <span class="toc-text"><a href="#upsert" class="headerlink" title="upsert"></a>upsert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#save函数"><span class="toc-number">10.</span> <span class="toc-text"><a href="#save&#x51FD;&#x6570;" class="headerlink" title="save&#x51FD;&#x6570;"></a>save&#x51FD;&#x6570;</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -224,9 +365,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
