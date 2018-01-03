@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>Archives: 2017 | 个人博客</title>
+  <title>mongodb条件查询符整理 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端,html,javascript,css,nodejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://SWPUliusong.github.io/archives/2017/index.html">
+  <meta name="description" content="$lt $lte $gt $gte $ne   条件符 对应值     $lt &amp;lt;   $lte &amp;lt;=   $gt &amp;gt;   $gte &amp;gt;=   $ne !=">
+<meta name="keywords" content="mongodb,数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb条件查询符整理">
+<meta property="og:url" content="https://SWPUliusong.github.io/2017/12/18/mongodb条件查询符整理/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="前端,html,javascript,css,nodejs">
+<meta property="og:description" content="$lt $lte $gt $gte $ne   条件符 对应值     $lt &amp;lt;   $lte &amp;lt;=   $gt &amp;gt;   $gte &amp;gt;=   $ne !=">
+<meta property="og:updated_time" content="2017-12-25T12:49:55.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="前端,html,javascript,css,nodejs">
+<meta name="twitter:title" content="mongodb条件查询符整理">
+<meta name="twitter:description" content="$lt $lte $gt $gte $ne   条件符 对应值     $lt &amp;lt;   $lte &amp;lt;=   $gt &amp;gt;   $gte &amp;gt;=   $ne !=">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -144,74 +146,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mongodb条件查询符整理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/19/构建一个Vue的Img组件/" class="archive-article-date">
-  	<time datetime="2017-12-19T09:01:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/19/构建一个Vue的Img组件/">构建一个Vue的Img组件</a>
+    <h1 class="article-title" itemprop="name">
+      mongodb条件查询符整理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/18/mongodb条件查询符整理/" class="archive-article-date">
+        
+        <a href="/2017/12/18/mongodb条件查询符整理/" class="archive-article-date">
   	<time datetime="2017-12-18T04:13:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/18/mongodb条件查询符整理/">mongodb条件查询符整理</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="lt-lte-gt-gte-ne"><a href="#lt-lte-gt-gte-ne" class="headerlink" title="$lt $lte $gt $gte $ne"></a>$lt $lte $gt $gte $ne</h2><table>
+<thead>
+<tr>
+<th>条件符</th>
+<th style="text-align:center">对应值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$lt</td>
+<td style="text-align:center">&lt;</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td style="text-align:center">&lt;=</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td style="text-align:center">&gt;</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td style="text-align:center">&gt;=</td>
+</tr>
+<tr>
+<td>$ne</td>
+<td style="text-align:center">!=</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="in-nin-all"><a href="#in-nin-all" class="headerlink" title="$in $nin $all"></a>$in $nin $all</h2><ul>
+<li>$in 文档字段值与数组某个元素匹配</li>
+<li>$nin 文档字段值不与数组任意元素匹配</li>
+<li>$all 所有元素要与文档匹配<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.col.find(&#123;<span class="attr">age</span>:&#123;<span class="attr">$in</span>:[<span class="number">11</span>,<span class="number">22</span>]&#125;&#125;)</span><br><span class="line">&gt; db.col.find(&#123;<span class="attr">age</span>:&#123;<span class="attr">$nin</span>:[<span class="number">11</span>,<span class="number">22</span>]&#125;&#125;)</span><br><span class="line">&gt; db.col.find(&#123; <span class="attr">Released</span>:&#123;<span class="attr">$all</span>:[<span class="string">"2010"</span>,<span class="string">"2009"</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="or-and-nor"><a href="#or-and-nor" class="headerlink" title="$or $and $nor"></a>$or $and $nor</h2><ul>
+<li>$or 或操作,满足其一</li>
+<li>$and 与操作,满足全部条件</li>
+<li>$nor 所列条件全部不满足<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.col.find(&#123;<span class="attr">$or</span>:[&#123;<span class="attr">age</span>:<span class="number">11</span>&#125;,&#123;<span class="attr">age</span>:<span class="number">22</span>&#125;]&#125;)</span><br><span class="line">&gt; db.col.find(&#123;<span class="attr">$and</span>:[&#123;<span class="attr">age</span>:<span class="number">11</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"xxx"</span>&#125;]&#125;)</span><br><span class="line">&gt; db.col.find(&#123;<span class="attr">$nor</span>:[&#123;<span class="attr">age</span>:<span class="number">11</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">"xxx"</span>&#125;]&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="not-mod"><a href="#not-mod" class="headerlink" title="$not $mod"></a>$not $mod</h2><ul>
+<li>$not与正则表达式联合使用时极为有效，用来查找那些与特定模式不匹配的文档。</li>
+<li>$mod会将查询的值除以第一个给定的值，若余数等于第二个给定的值，则返回该结果。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.col.find(&#123;<span class="attr">age</span>:&#123;<span class="attr">$mod</span>:[<span class="number">11</span>,<span class="number">0</span>]&#125;&#125;)</span><br><span class="line">&gt; db.col.find(&#123;<span class="attr">age</span>:&#123;<span class="attr">$not</span>:&#123;<span class="attr">$mod</span>:[<span class="number">11</span>,<span class="number">0</span>]&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="slice"><a href="#slice" class="headerlink" title="$slice"></a>$slice</h2><p>相当于数组函数的切片,值可以是int或者[]int</p>
+<ul>
+<li>int: 表示要返回的元素总数.正数从集合头部开始返回;负数从尾部</li>
+<li>[]int: 第一个参数定义的是偏移量，而第二个参数是限定的个数(同上)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mediaCollection.find(&#123;<span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>&#125;).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Keanu Reeves"</span>,</span><br><span class="line">            <span class="string">"Carry-Anne Moss"</span>,</span><br><span class="line">            <span class="string">"Laurence Fishburne"</span>,</span><br><span class="line">            <span class="string">"Hugo Weaving"</span>,</span><br><span class="line">            <span class="string">"Gloria Foster"</span>,</span><br><span class="line">            <span class="string">"Joe Pantoliano"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&gt; db.mediaCollection.find(&#123;<span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>&#125;, &#123;<span class="string">"Cast"</span> : &#123;<span class="attr">$slice</span>: <span class="number">3</span>&#125;&#125;).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Keanu Reeves"</span>,</span><br><span class="line">            <span class="string">"Carry-Anne Moss"</span>,</span><br><span class="line">            <span class="string">"Laurence Fishburne"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&gt; db.mediaCollection.find(&#123;<span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>&#125;, &#123;<span class="string">"Cast"</span> : &#123;<span class="attr">$slice</span>: <span class="number">-3</span>&#125;&#125;).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Hugo Weaving"</span>,</span><br><span class="line">            <span class="string">"Gloria Foster"</span>,</span><br><span class="line">            <span class="string">"Joe Pantoliano"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&gt; db.mediaCollection.find(&#123;<span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>&#125;, &#123;<span class="string">"Cast"</span> : &#123;<span class="attr">$slice</span>: [<span class="number">2</span>,<span class="number">3</span>] &#125;&#125;).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Laurence Fishburne"</span>,</span><br><span class="line">            <span class="string">"Hugo Weaving"</span>,</span><br><span class="line">            <span class="string">"Gloria Foster"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&gt; db.mediaCollection.find(&#123;<span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>&#125;, &#123;<span class="string">"Cast"</span> : &#123;<span class="attr">$slice</span>: [<span class="number">-5</span>,<span class="number">4</span>] &#125;&#125;).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Carry-Anne Moss"</span>,</span><br><span class="line">            <span class="string">"Laurence Fishburne"</span>,</span><br><span class="line">            <span class="string">"Hugo Weaving"</span>,</span><br><span class="line">            <span class="string">"Gloria Foster"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="size"><a href="#size" class="headerlink" title="$size"></a>$size</h2><p>对结果进行筛选，匹配指定的元素数的数组。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mediaCollection.find( &#123; <span class="attr">Tracklist</span> : &#123;<span class="attr">$size</span> : <span class="number">2</span>&#125; &#125; ).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"5353463193efef02c962da73"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"CD"</span>,</span><br><span class="line">        <span class="string">"Artist"</span> : <span class="string">"Nirvana"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Nevermind"</span>,</span><br><span class="line">        <span class="string">"Tracklist"</span> : [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Track"</span> : <span class="string">"1"</span>,</span><br><span class="line">                <span class="string">"Title"</span> : <span class="string">"Smells like teen spirit"</span>,</span><br><span class="line">                <span class="string">"Length"</span> : <span class="string">"5:02"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Track"</span> : <span class="string">"2"</span>,</span><br><span class="line">                <span class="string">"Title"</span> : <span class="string">"In Bloom"</span>,</span><br><span class="line">                <span class="string">"Length"</span> : <span class="string">"4:15"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&gt; db.mediaCollection.find( &#123; <span class="attr">Cast</span> : &#123;<span class="attr">$size</span> : <span class="number">1</span>&#125; &#125; ).toArray()</span><br><span class="line">[ ]</span><br><span class="line">&gt; db.mediaCollection.find( &#123; <span class="attr">Cast</span> : &#123;<span class="attr">$size</span> : <span class="number">6</span>&#125; &#125; ).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"53548225d85b463e729a2e57"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"DVD"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Matrix, The"</span>,</span><br><span class="line">        <span class="string">"Released"</span> : <span class="number">1999</span>,</span><br><span class="line">        <span class="string">"Cast"</span> : [</span><br><span class="line">            <span class="string">"Keanu Reeves"</span>,</span><br><span class="line">            <span class="string">"Carry-Anne Moss"</span>,</span><br><span class="line">            <span class="string">"Laurence Fishburne"</span>,</span><br><span class="line">            <span class="string">"Hugo Weaving"</span>,</span><br><span class="line">            <span class="string">"Gloria Foster"</span>,</span><br><span class="line">            <span class="string">"Joe Pantoliano"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="exists"><a href="#exists" class="headerlink" title="$exists"></a>$exists</h2><ul>
+<li>布尔值</li>
+<li>筛选文档字段是否存在<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mediaCollection.find( &#123; <span class="attr">Author</span> : &#123;<span class="attr">$exists</span> : <span class="literal">true</span> &#125; &#125; ).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"5353462f93efef02c962da71"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"Book"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Definitive Guide to MongoDB, the"</span>,</span><br><span class="line">        <span class="string">"ISBN"</span> : <span class="string">"987-1-4302-3051-9"</span>,</span><br><span class="line">        <span class="string">"Publisher"</span> : <span class="string">"Apress"</span>,</span><br><span class="line">        <span class="string">"Author"</span> : [</span><br><span class="line">            <span class="string">"Membrey, Peter"</span>,</span><br><span class="line">            <span class="string">"Plugge, Eelco"</span>,</span><br><span class="line">            <span class="string">"Hawkins, Tim"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="type"><a href="#type" class="headerlink" title="$type"></a>$type</h2><p>基于BSON类型来匹配结果</p>
+<table>
+<thead>
+<tr>
+<th>类型描述</th>
+<th style="text-align:center">类型值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>String</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td>Object</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>Array</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td>Binary data</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>Object id</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td>Date</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td>Null</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td>Regular expression</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td>JavaScript code</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td style="text-align:center">14</td>
+</tr>
+<tr>
+<td>JavaScript code with scope</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>32-bit integer</td>
+<td style="text-align:center">16</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td style="text-align:center">17</td>
+</tr>
+<tr>
+<td>64-bit integer</td>
+<td style="text-align:center">18</td>
+</tr>
+<tr>
+<td>Min key</td>
+<td style="text-align:center">255</td>
+</tr>
+<tr>
+<td>Max key</td>
+<td style="text-align:center">127</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mediaCollection.find ( &#123; <span class="attr">Tracklist</span>: &#123; <span class="attr">$type</span> : <span class="number">3</span> &#125; &#125; ).toArray()</span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span> : ObjectId(<span class="string">"5353463193efef02c962da73"</span>),</span><br><span class="line">        <span class="string">"Type"</span> : <span class="string">"CD"</span>,</span><br><span class="line">        <span class="string">"Artist"</span> : <span class="string">"Nirvana"</span>,</span><br><span class="line">        <span class="string">"Title"</span> : <span class="string">"Nevermind"</span>,</span><br><span class="line">        <span class="string">"Tracklist"</span> : [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Track"</span> : <span class="string">"1"</span>,</span><br><span class="line">                <span class="string">"Title"</span> : <span class="string">"Smells like teen spirit"</span>,</span><br><span class="line">                <span class="string">"Length"</span> : <span class="string">"5:02"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Track"</span> : <span class="string">"2"</span>,</span><br><span class="line">                <span class="string">"Title"</span> : <span class="string">"In Bloom"</span>,</span><br><span class="line">                <span class="string">"Length"</span> : <span class="string">"4:15"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原帖地址<a href="http://www.ttlsa.com/mongodb/mongodb-conditional-operators/" target="_blank" rel="noopener">http://www.ttlsa.com/mongodb/mongodb-conditional-operators/</a></p>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -227,103 +336,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://SWPUliusong.github.io/2017/12/18/mongodb条件查询符整理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/mongodb修改器整理/" class="archive-article-date">
-  	<time datetime="2017-12-15T03:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/19/构建一个Vue的Img组件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          构建一个Vue的Img组件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/15/mongodb修改器整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongodb修改器整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/mongodb修改器整理/">mongodb修改器整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-lte-gt-gte-ne"><span class="toc-number">1.</span> <span class="toc-text"><a href="#lt-lte-gt-gte-ne" class="headerlink" title="$lt $lte $gt $gte $ne"></a>$lt $lte $gt $gte $ne</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-nin-all"><span class="toc-number">2.</span> <span class="toc-text"><a href="#in-nin-all" class="headerlink" title="$in $nin $all"></a>$in $nin $all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#or-and-nor"><span class="toc-number">3.</span> <span class="toc-text"><a href="#or-and-nor" class="headerlink" title="$or $and $nor"></a>$or $and $nor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#not-mod"><span class="toc-number">4.</span> <span class="toc-text"><a href="#not-mod" class="headerlink" title="$not $mod"></a>$not $mod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slice"><span class="toc-number">5.</span> <span class="toc-text"><a href="#slice" class="headerlink" title="$slice"></a>$slice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#size"><span class="toc-number">6.</span> <span class="toc-text"><a href="#size" class="headerlink" title="$size"></a>$size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exists"><span class="toc-number">7.</span> <span class="toc-text"><a href="#exists" class="headerlink" title="$exists"></a>$exists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#type"><span class="toc-number">8.</span> <span class="toc-text"><a href="#type" class="headerlink" title="$type"></a>$type</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/13/利用hexo构建github-page/" class="archive-article-date">
-  	<time datetime="2017-12-13T12:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/利用hexo构建github-page/">利用hexo构建github page</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github page</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -346,8 +480,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
