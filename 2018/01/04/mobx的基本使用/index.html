@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>Tag: 数据库 | 个人博客</title>
+  <title>mobx的基本使用 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端,html,javascript,css,nodejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://SWPUliusong.github.io/tags/数据库/index.html">
+  <meta name="description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
+<meta name="keywords" content="react,mobx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mobx的基本使用">
+<meta property="og:url" content="https://SWPUliusong.github.io/2018/01/04/mobx的基本使用/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="前端,html,javascript,css,nodejs">
+<meta property="og:description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
+<meta property="og:image" content="http://cn.mobx.js.org/flow.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4pk26zwkj30dr06eaa2.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4p3qvyvgg317w0lwt9k.jpg">
+<meta property="og:updated_time" content="2018-01-05T11:03:28.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="前端,html,javascript,css,nodejs">
+<meta name="twitter:title" content="mobx的基本使用">
+<meta name="twitter:description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
+<meta name="twitter:image" content="http://cn.mobx.js.org/flow.png">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -144,106 +150,179 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mobx的基本使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/18/mongodb条件查询符整理/" class="archive-article-date">
-  	<time datetime="2017-12-18T04:13:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/18/mongodb条件查询符整理/">mongodb条件查询符整理</a>
+    <h1 class="article-title" itemprop="name">
+      mobx的基本使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/01/04/mobx的基本使用/" class="archive-article-date">
+  	<time datetime="2018-01-04T03:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx</p>
+<h2 id="mobx的基本概念"><a href="#mobx的基本概念" class="headerlink" title="mobx的基本概念"></a>mobx的基本概念</h2><p>mobx的核心api很少</p>
+<ul>
+<li>observable: 将数据定义为可被观测的,mobx会跟踪值的变化</li>
+<li>computed: 当依赖关系变化时,mobx会重新计算该值</li>
+<li>autorun: 当它的依赖关系改变时会被触发</li>
+<li>action: 对状态的修改动作(一般可省略,严格模式强制要求使用)</li>
+<li>observer: mobx-react里的api,将mobx的store映射到组件的state</li>
+</ul>
+<a id="more"></a>
+<p>一般来说,基本工作流程-官方的图<img src="http://cn.mobx.js.org/flow.png" alt=""><br>下面我们来写一个常见的todo list的例子</p>
+<h2 id="todo-list例子"><a href="#todo-list例子" class="headerlink" title="todo list例子"></a>todo list例子</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install -g create-react-app       // 安装create-react-app</span><br><span class="line"></span><br><span class="line">&gt; create-react-app todo-list           // 创建项目</span><br><span class="line"></span><br><span class="line">&gt; cd todo-list</span><br><span class="line"></span><br><span class="line">&gt; npm start</span><br></pre></td></tr></table></figure>
+<p>由于我们要用到ES7的装饰器,所以我们必须自己配置下webpack配置文件,之前是看不到webpack文件的,因为create-react-app自己管理了这个配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm run eject     // 退出这种模式,使配置文件都显示出来</span><br><span class="line">&gt; npm i --save-dev babel-plugin-transform-decorators-legacy     // 安装插件</span><br></pre></td></tr></table></figure></p>
+<p>修改webpack的配置文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: <span class="regexp">/\.(js|jsx|mjs)$/</span>,</span><br><span class="line">    include: paths.appSrc,</span><br><span class="line">    loader: <span class="built_in">require</span>.resolve(<span class="string">'babel-loader'</span>),</span><br><span class="line">    options: &#123;</span><br><span class="line">        </span><br><span class="line">        compact: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 添加这一句</span></span><br><span class="line">        plugins: [<span class="string">"transform-decorators-legacy"</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="定义store"><a href="#定义store" class="headerlink" title="定义store"></a>定义store</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; observable, computed, action, autorun &#125; <span class="keyword">from</span> <span class="string">"mobx"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> originId = <span class="number">0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> </span>&#123;</span><br><span class="line">    id = originId++</span><br><span class="line">    @observable completed = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(text) &#123;</span><br><span class="line">        <span class="keyword">this</span>.text = text</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 内部依赖this的text,当它变化时会触发该autorun</span></span><br><span class="line">        autorun(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`添加了一条todo项: <span class="subst">$&#123;<span class="keyword">this</span>.text&#125;</span>`</span>)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 内部依赖this的completed和text,当它们变化时会触发该autorun</span></span><br><span class="line">        autorun(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.completed) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`完成了一条todo项: <span class="subst">$&#123;<span class="keyword">this</span>.text&#125;</span>`</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 过滤策略</span></span><br><span class="line"><span class="keyword">const</span> filterWays = &#123;</span><br><span class="line">    ALL(todos) &#123;</span><br><span class="line">        <span class="keyword">return</span> todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> <span class="literal">true</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    ACTIVE(todos) &#123;</span><br><span class="line">        <span class="keyword">return</span> todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> !todo.completed)</span><br><span class="line">    &#125;,</span><br><span class="line">    COMPLETED(todos) &#123;</span><br><span class="line">        <span class="keyword">return</span> todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.completed)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 过滤方式</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> filters = <span class="built_in">Object</span>.keys(filterWays)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">TodosStore</span> </span>&#123;</span><br><span class="line">    @observable todos = []</span><br><span class="line">    @observable filter = filters[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    @action add(text) &#123;</span><br><span class="line">        <span class="keyword">this</span>.todos.push(<span class="keyword">new</span> Todo(text))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @computed get list() &#123;</span><br><span class="line">        <span class="keyword">const</span> filterWay = filterWays[<span class="keyword">this</span>.filter]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!filterWay) <span class="keyword">return</span> <span class="keyword">this</span>.todos</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> filterWay(<span class="keyword">this</span>.todos)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> todosStore = <span class="keyword">new</span> TodosStore()</span><br></pre></td></tr></table></figure>
+<h3 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h3><p>划分组件为三个部分<br><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4pk26zwkj30dr06eaa2.jpg" alt=""></p>
+<p>App.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; AddTodo &#125; <span class="keyword">from</span> <span class="string">"./components/AddTodo"</span></span><br><span class="line"><span class="keyword">import</span> &#123; ShowTodos &#125; <span class="keyword">from</span> <span class="string">"./components/ShowTodos"</span></span><br><span class="line"><span class="keyword">import</span> &#123; Filter &#125; <span class="keyword">from</span> <span class="string">"./components/Filter"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./App.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;AddTodo /&gt;</span><br><span class="line">        &lt;ShowTodos /&gt;</span><br><span class="line">        &lt;Filter /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure></p>
+<p>AddTodo.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; observer &#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; todosStore &#125; <span class="keyword">from</span> <span class="string">"../stores"</span></span><br><span class="line"></span><br><span class="line">@observer</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTodo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;form onSubmit=&#123;e =&gt; <span class="keyword">this</span>.submit(e)&#125;&gt;</span><br><span class="line">                &lt;input type=<span class="string">"text"</span> </span><br><span class="line">                ref=&#123;node =&gt; <span class="keyword">this</span>.input = node&#125; /&gt;</span><br><span class="line">                &lt;button type=<span class="string">"submit"</span>&gt;添加&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>form&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    submit(e) &#123;</span><br><span class="line">        e.preventDefault()</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.input.value) <span class="keyword">return</span></span><br><span class="line">        todosStore.add(<span class="keyword">this</span>.input.value)</span><br><span class="line">        <span class="keyword">this</span>.input.value = <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ShowTodos.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; observer &#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; todosStore &#125; <span class="keyword">from</span> <span class="string">"../stores"</span></span><br><span class="line"></span><br><span class="line">@observer</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ShowTodos</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    todosStore.list.map(<span class="function"><span class="params">todo</span> =&gt;</span> (</span><br><span class="line">                        &lt;li style=&#123;<span class="keyword">this</span>.isCompleted(todo.completed)&#125;</span><br><span class="line">                            key=&#123;todo.id&#125;</span><br><span class="line">                            onClick=&#123;() =&gt; <span class="keyword">this</span>.clickHandle(todo)&#125;&gt;</span><br><span class="line">                            &#123;todo.text&#125;</span><br><span class="line">                        &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">                    ))</span></span><br><span class="line"><span class="regexp">                &#125;</span></span><br><span class="line"><span class="regexp">            &lt;/u</span>l&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clickHandle(todo) &#123;</span><br><span class="line">        todo.completed = !todo.completed</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    isCompleted(completed) &#123;</span><br><span class="line">        <span class="keyword">if</span> (completed) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123; <span class="attr">textDecoration</span>: <span class="string">"line-through"</span> &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123; <span class="attr">textDecoration</span>: <span class="string">"none"</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Filter.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; observer &#125; <span class="keyword">from</span> <span class="string">"mobx-react"</span></span><br><span class="line"><span class="keyword">import</span> &#123; todosStore, filters &#125; <span class="keyword">from</span> <span class="string">"../stores"</span></span><br><span class="line"></span><br><span class="line">@observer</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Filter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;p className=<span class="string">"filter"</span>&gt;</span><br><span class="line">                Filter:</span><br><span class="line">                &#123;</span><br><span class="line">                    filters.map(<span class="function"><span class="params">filter</span> =&gt;</span> (</span><br><span class="line">                        &lt;span key=&#123;filter&#125;</span><br><span class="line">                            style=&#123;<span class="keyword">this</span>.isChecked(filter)&#125;</span><br><span class="line">                            onClick=&#123;() =&gt; <span class="keyword">this</span>.clickHandle(filter)&#125;&gt;&#123;filter&#125;</span><br><span class="line">                        &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">                    ))</span></span><br><span class="line"><span class="regexp">                &#125;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>p&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clickHandle(filter) &#123;</span><br><span class="line">        todosStore.filter = filter</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    isChecked(key) &#123;</span><br><span class="line">        <span class="keyword">if</span> (todosStore.filter === key) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123; <span class="attr">color</span>: <span class="string">"blue"</span>, <span class="attr">textDecoration</span>: <span class="string">"none"</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4p3qvyvgg317w0lwt9k.jpg" alt=""><br>代码地址: <a href="https://github.com/SWPUliusong/coding-play/tree/master/react-todo-list" target="_blank" rel="noopener">react-todo-list</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mobx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://SWPUliusong.github.io/2018/01/04/mobx的基本使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/mongodb修改器整理/" class="archive-article-date">
-  	<time datetime="2017-12-15T03:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/01/08/nodejs知识梳理1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何通过饿了么 Node.js 面试(一) --- JavaScript 基础问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/19/构建一个Vue的Img组件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">构建一个Vue的Img组件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/mongodb修改器整理/">mongodb修改器整理</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -266,9 +345,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

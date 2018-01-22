@@ -146,6 +146,263 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-we-hava-a-problem-with-promises" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/22/we-hava-a-problem-with-promises/">[译] 我们遇到了关于promise的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/22/we-hava-a-problem-with-promises/" class="archive-article-date">
+  	<time datetime="2018-01-22T08:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>原文地址: <a href="https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="noopener">we-have-a-problem-with-promises</a></p>
+</blockquote>
+<p>各位JavaScripters,是时候承认:我们遇到了关于promise的问题.</p>
+<p>在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是：</p>
+<p>我们很多人都使用promise,<em>却没有真正理解它</em></p>
+<p>如果你觉得难以置信,请考虑我最近发布到<a href="https://twitter.com/nolanlawson/status/578948854411878400" target="_blank" rel="noopener">Twitter</a>上的难题</p>
+<p><strong>问题: 下面这四个promise有什么不同?</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">doSomething().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> doSomethingElse();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">doSomething().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  doSomethingElse();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">doSomething().then(doSomethingElse());</span><br><span class="line"></span><br><span class="line">doSomething().then(doSomethingElse);</span><br></pre></td></tr></table></figure></p>
+<p>如果你知道答案,那么祝贺你,你已经是一个promise忍者了,不用再继续阅读这篇文章了.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/22/we-hava-a-problem-with-promises/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-nodejs知识梳理1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/08/nodejs知识梳理1/">如何通过饿了么 Node.js 面试(一) --- JavaScript 基础问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/08/nodejs知识梳理1/" class="archive-article-date">
+  	<time datetime="2018-01-08T12:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>饿了么很久之前曾在github上发表过一篇<strong><a href="https://github.com/ElemeFE/node-interview/" target="_blank" rel="noopener">如何通过饿了么 Node.js 面试</a></strong>,文中对一个合格noder需要掌握的知识点进行了一个大致的梳理,这里我就按照他的顺序做一个简单的整理,也算是对是自身知识的一个回顾和加强</p>
+<h2 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h2><h4 id="相等-和-严格相等-的区别"><a href="#相等-和-严格相等-的区别" class="headerlink" title="==(相等)和===(严格相等)的区别:"></a><code>==</code>(相等)和<code>===</code>(严格相等)的区别:</h4><ol>
+<li>类型相同时,简单类型直接比较值,复杂类型比较是否同一引用.</li>
+<li>两者类型不同,且为数字,布尔,字符串时,<code>===</code>直接返回false,而<code>==</code>会先将它们都转化成数字,再做严格比较.</li>
+<li>两者类型不同,且为复杂类型比较简单类型时,<code>===</code>直接返回false,而<code>==</code>会先将复杂类型转化成原始值,再做严格比较.</li>
+<li><code>null</code>和<code>undefined</code>互相<code>==</code>,且不和其他值相等,但只<code>===</code>自身</li>
+<li><code>NaN</code>不等于所有值(包括自己)</li>
+</ol>
+        
+          <a class="article-more-a" href="/2018/01/08/nodejs知识梳理1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/08/nodejs知识梳理1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mobx的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/mobx的基本使用/">mobx的基本使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/mobx的基本使用/" class="archive-article-date">
+  	<time datetime="2018-01-04T03:09:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx</p>
+<h2 id="mobx的基本概念"><a href="#mobx的基本概念" class="headerlink" title="mobx的基本概念"></a>mobx的基本概念</h2><p>mobx的核心api很少</p>
+<ul>
+<li>observable: 将数据定义为可被观测的,mobx会跟踪值的变化</li>
+<li>computed: 当依赖关系变化时,mobx会重新计算该值</li>
+<li>autorun: 当它的依赖关系改变时会被触发</li>
+<li>action: 对状态的修改动作(一般可省略,严格模式强制要求使用)</li>
+<li>observer: mobx-react里的api,将mobx的store映射到组件的state</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/01/04/mobx的基本使用/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mobx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/mobx的基本使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-构建一个Vue的Img组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -593,6 +850,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -601,7 +870,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mobx</a>
               </li>
             
             <div class="clearfix"></div>
