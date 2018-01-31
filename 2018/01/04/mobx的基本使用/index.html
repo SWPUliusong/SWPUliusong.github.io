@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>mobx的基本使用 | 个人博客</title>
+  <title>使用mobx实现一个todo list | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
 <meta name="keywords" content="react,mobx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mobx的基本使用">
+<meta property="og:title" content="使用mobx实现一个todo list">
 <meta property="og:url" content="https://SWPUliusong.github.io/2018/01/04/mobx的基本使用/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
 <meta property="og:image" content="http://cn.mobx.js.org/flow.png">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4pk26zwkj30dr06eaa2.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fn4p3qvyvgg317w0lwt9k.jpg">
-<meta property="og:updated_time" content="2018-01-05T11:03:28.545Z">
+<meta property="og:updated_time" content="2018-01-31T15:27:18.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mobx的基本使用">
+<meta name="twitter:title" content="使用mobx实现一个todo list">
 <meta name="twitter:description" content="前言我们知道react的组件是类似于树一样的结构,数据只能单向的由上向下传递,当组件树越来越复杂时,状态传递的层级会越来越深,整个应用也会变得非常杂乱.这时就需要引入状态管理工具,一般来说,redux和mobx都是比较常见的选择,但是就初步接触的体验来说,个人更喜欢mobx mobx的基本概念mobx的核心api很少  observable: 将数据定义为可被观测的,mobx会跟踪值的变化 com">
 <meta name="twitter:image" content="http://cn.mobx.js.org/flow.png">
   
@@ -157,7 +157,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mobx的基本使用
+      使用mobx实现一个todo list
     </h1>
   
 
@@ -407,15 +407,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mobx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,14 +440,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github page</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mobx</a>
               </li>
             
             <div class="clearfix"></div>
