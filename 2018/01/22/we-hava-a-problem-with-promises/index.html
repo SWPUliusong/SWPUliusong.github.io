@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
   <title>[译] 我们遇到了关于promise的问题 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如果你觉得难以置信,请考虑我最近发布到Twitter上的难题 问题:">
+  <meta name="description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 不，并非是promise本身。由A +规范定义的承诺是非常棒的。 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[译] 我们遇到了关于promise的问题">
 <meta property="og:url" content="https://SWPUliusong.github.io/2018/01/22/we-hava-a-problem-with-promises/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如果你觉得难以置信,请考虑我最近发布到Twitter上的难题 问题:">
-<meta property="og:updated_time" content="2018-01-31T15:24:20.289Z">
+<meta property="og:description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 不，并非是promise本身。由A +规范定义的承诺是非常棒的。 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如">
+<meta property="og:updated_time" content="2018-02-03T02:32:57.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[译] 我们遇到了关于promise的问题">
-<meta name="twitter:description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如果你觉得难以置信,请考虑我最近发布到Twitter上的难题 问题:">
+<meta name="twitter:description" content="原文地址: we-have-a-problem-with-promises  各位JavaScripters,是时候承认:我们遇到了关于promise的问题. 不，并非是promise本身。由A +规范定义的承诺是非常棒的。 在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是： 我们很多人都使用promise,却没有真正理解它 如">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -170,12 +170,15 @@
 <p>原文地址: <a href="https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="noopener">we-have-a-problem-with-promises</a></p>
 </blockquote>
 <p>各位JavaScripters,是时候承认:我们遇到了关于promise的问题.</p>
+<p>不，并非是promise本身。由A +规范定义的承诺是非常棒的。</p>
 <p>在过去的一年里，我看到很多程序员都在为PouchDB API和其他promise API而苦苦挣扎的问题，这个问题是：</p>
 <p>我们很多人都使用promise,<em>却没有真正理解它</em></p>
 <p>如果你觉得难以置信,请考虑我最近发布到<a href="https://twitter.com/nolanlawson/status/578948854411878400" target="_blank" rel="noopener">Twitter</a>上的难题</p>
 <p><strong>问题: 下面这四个promise有什么不同?</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">doSomething().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> doSomethingElse();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">doSomething().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  doSomethingElse();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">doSomething().then(doSomethingElse());</span><br><span class="line"></span><br><span class="line">doSomething().then(doSomethingElse);</span><br></pre></td></tr></table></figure></p>
-<p>如果你知道答案,那么祝贺你,你已经是一个promise忍者了,不用再继续阅读这篇文章了.</p>
-<a id="more"></a>
+<p>如果你知道答案,那么祝贺你,你已经是一个promise忍者了,可以不用再继续阅读这篇文章了.<br><a id="more"></a></p>
+<p>答案是在这篇文章的最后，但首先，我想探讨为什么promise如此棘手，为什么我们这些许多新手和专家都被他们绊倒了。我也将提供我认为是独特的见解，一个奇怪的把戏，这使得promise简单易理解。是的，我真的相信他们并不那么困难！</p>
+<p>但首先，让我们挑战关于promise的一些常见假设。</p>
+
       
 
       
@@ -378,6 +381,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -390,19 +401,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -411,6 +410,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github page</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
