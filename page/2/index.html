@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>构建一个Vue的Img组件 | 个人博客</title>
+  <title>个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="需求 有一个加载动画过度 可以重新加载网络不畅失败的图片 当组件销毁时,应该断开加载连接,防止浪费带宽">
-<meta name="keywords" content="vue">
-<meta property="og:type" content="article">
-<meta property="og:title" content="构建一个Vue的Img组件">
-<meta property="og:url" content="https://SWPUliusong.github.io/2017/12/19/构建一个Vue的Img组件/index.html">
+  <meta name="description" content="前端,html,javascript,css,nodejs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="https://SWPUliusong.github.io/page/2/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="需求 有一个加载动画过度 可以重新加载网络不畅失败的图片 当组件销毁时,应该断开加载连接,防止浪费带宽">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fmoim7i635j30jv0hrdhk.jpg">
-<meta property="og:updated_time" content="2017-12-25T12:49:55.044Z">
+<meta property="og:description" content="前端,html,javascript,css,nodejs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="构建一个Vue的Img组件">
-<meta name="twitter:description" content="需求 有一个加载动画过度 可以重新加载网络不畅失败的图片 当组件销毁时,应该断开加载连接,防止浪费带宽">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005tsFX0gy1fmoim7i635j30jv0hrdhk.jpg">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="前端,html,javascript,css,nodejs">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -148,50 +144,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-构建一个Vue的Img组件" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-利用hexo构建github-page" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      构建一个Vue的Img组件
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/13/利用hexo构建github-page/">利用hexo构建github page</a>
     </h1>
   
 
         
-        <a href="/2017/12/19/构建一个Vue的Img组件/" class="archive-article-date">
-  	<time datetime="2017-12-19T09:01:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
+        <a href="/2017/12/13/利用hexo构建github-page/" class="archive-article-date">
+  	<time datetime="2017-12-13T12:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><ul>
-<li>有一个加载动画过度</li>
-<li>可以重新加载网络不畅失败的图片</li>
-<li>当组件销毁时,应该断开加载连接,防止浪费带宽</li>
-</ul>
-<a id="more"></a>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
-<li>加载过渡<br>网络上copy了一个加载图标的base64字符串<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> loadingIcon = <span class="string">`data:image/svg+xml;base64,PHN2ZyB4bW</span></span><br><span class="line"><span class="string">    xucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9</span></span><br><span class="line"><span class="string">    IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsP</span></span><br><span class="line"><span class="string">    SJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMC</span></span><br><span class="line"><span class="string">    BBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE</span></span><br><span class="line"><span class="string">    2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0</span></span><br><span class="line"><span class="string">    Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2I</span></span><br><span class="line"><span class="string">    EwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdG</span></span><br><span class="line"><span class="string">    VUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXB</span></span><br><span class="line"><span class="string">    lPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYi</span></span><br><span class="line"><span class="string">    IGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+</span></span><br><span class="line"><span class="string">    CiAgPC9wYXRoPgo8L3N2Zz4K`</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>首先将它赋给组件内展示dom的img元素的src属性,显示加载图标;然后创建一个img元素,将它的src属性设置为真实图片的链接;这时,浏览器会开始加载图片,监听img的load事件,触发时再把真实图片src赋给dom上的img元素,由于浏览器都会缓存静态资源(除非后台设置不缓存),所以这次加载不经网络请求,直接从本地缓存获取<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.imgSrc = loadingIcon;</span><br><span class="line"><span class="keyword">let</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</span><br><span class="line">img.src = <span class="keyword">this</span>.src;</span><br><span class="line">img.addEventListener(<span class="string">"load"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.imgSrc = img.src;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>重新加载<br>有时候,网络不畅而图片又很多时,图片也会加载失败,可以监听img的error事件,当触发时,删除img的src再重新赋值,引起浏览器重新加载</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> limit = <span class="built_in">parseInt</span>(<span class="keyword">this</span>.reloadCount) || <span class="number">3</span>;</span><br><span class="line">img.addEventListener(<span class="string">"error"</span>, () =&gt; &#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">delete</span> img.src;</span><br><span class="line">    <span class="keyword">if</span> (count === limit) &#123;</span><br><span class="line">        img.src = <span class="string">"./static/deleted.jpg"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        img.src = <span class="keyword">this</span>.src;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>断开链接<br>当组件销毁时,如果连接仍然存在,势必会消耗带宽;这里可以保存加载图片的img对象,在销毁组件时,将他的src重置为预留图标</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> img = (<span class="keyword">this</span>.imgElem = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>));</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">beforeDestroy() &#123;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="keyword">this</span>.isConnection) <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">this</span>.imgElem.src = loadingIcon;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>这里用v-if来触发销毁事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  template: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;button @click="destroy"&gt;destroy&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;my-image v-if="show" :src="src" alt="123" /&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span>,</span><br><span class="line">    src: <span class="string">"https://ws1.sinaimg.cn/large/005tsFX0gy1fmfiiy7pmtj30ux0k8h7h.jpg"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    destroy() &#123;</span><br><span class="line">      <span class="keyword">this</span>.show = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://ws1.sinaimg.cn/large/005tsFX0gy1fmoim7i635j30jv0hrdhk.jpg" alt=""></p>
-<p>在未加载时点击按钮,图片停止了加载,这里加载了部分所以返回了206,有时会直接显示cancel这个链接</p>
-<p>测试demo: <a href="https://jsfiddle.net/50wL7mdz/84704/" target="_blank" rel="noopener">https://jsfiddle.net/50wL7mdz/84704/</a></p>
-<h3 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgSrc"</span> <span class="attr">:alt</span>=<span class="string">"alt"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 图片未加载完成时显示加载图标指令</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> loadingIcon = <span class="string">`data:image/svg+xml;base64,PHN2ZyB4bW</span></span></span><br><span class="line"><span class="undefined">        xucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9</span></span><br><span class="line"><span class="undefined">        IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsP</span></span><br><span class="line"><span class="undefined">        SJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMC</span></span><br><span class="line"><span class="undefined">        BBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE</span></span><br><span class="line"><span class="undefined">        2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0</span></span><br><span class="line"><span class="undefined">        Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2I</span></span><br><span class="line"><span class="undefined">        EwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdG</span></span><br><span class="line"><span class="undefined">        VUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXB</span></span><br><span class="line"><span class="undefined">        lPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYi</span></span><br><span class="line"><span class="undefined">        IGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+</span></span><br><span class="line"><span class="undefined">        CiAgPC9wYXRoPgo8L3N2Zz4K`;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    props: [<span class="string">"src"</span>, <span class="string">"alt"</span>, <span class="string">"reloadCount"</span>],</span></span><br><span class="line"><span class="undefined">    data() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">        imgSrc: loadingIcon,</span></span><br><span class="line"><span class="javascript">        imgElem: <span class="literal">null</span>,</span></span><br><span class="line"><span class="javascript">        isConnection: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">      &#125;;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    mounted() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 不阻塞UI线程</span></span></span><br><span class="line"><span class="javascript">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> count = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 重新加载次数限制</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> limit = <span class="built_in">parseInt</span>(<span class="keyword">this</span>.reloadCount) || <span class="number">3</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> img = (<span class="keyword">this</span>.imgElem = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>));</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 隐式加载图片</span></span></span><br><span class="line"><span class="javascript">        img.src = <span class="keyword">this</span>.src;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 等img对象将图片加载缓存完成再把src赋给dom元素</span></span></span><br><span class="line"><span class="javascript">        img.addEventListener(<span class="string">"load"</span>, () =&gt; &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">this</span>.imgSrc = img.src;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">this</span>.isConnection = <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 图片加载失败则重新加载</span></span></span><br><span class="line"><span class="javascript">        img.addEventListener(<span class="string">"error"</span>, () =&gt; &#123;</span></span><br><span class="line"><span class="undefined">          count++;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">delete</span> img.src;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span> (count === limit) &#123;</span></span><br><span class="line"><span class="javascript">            img.src = <span class="string">"./static/deleted.jpg"</span>;</span></span><br><span class="line"><span class="javascript">          &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            img.src = <span class="keyword">this</span>.src;</span></span><br><span class="line"><span class="undefined">          &#125;</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    beforeDestroy() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(!<span class="keyword">this</span>.isConnection) <span class="keyword">return</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 组件删除销毁时,重置隐藏Img的src属性可以断开加载链接</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.imgElem.src = loadingIcon;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><ol>
+<li>git</li>
+<li>node.js</li>
+</ol>
+<h2 id="一、全局安装hexo"><a href="#一、全局安装hexo" class="headerlink" title="一、全局安装hexo"></a>一、全局安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm i -g hexo</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/12/13/利用hexo构建github-page/#more">more >></a>
+        
       
 
       
@@ -204,7 +186,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github page</a>
         		</li>
       		
 		</ul>
@@ -213,84 +199,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/13/利用hexo构建github-page/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://SWPUliusong.github.io/2017/12/19/构建一个Vue的Img组件/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/04/mobx的基本使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用mobx实现一个todo list
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/12/18/mongodb条件查询符整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mongodb条件查询符整理</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -310,14 +228,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -340,8 +256,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
