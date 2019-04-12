@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://SWPUliusong.github.io">
-  <title>Archives: 2017 | 个人博客</title>
+  <title>记一次nodejs外网无法访问的故障 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端,html,javascript,css,nodejs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://SWPUliusong.github.io/archives/2017/index.html">
+  <meta name="description" content="本人在最近的一次开发过程中，突然出现一个问题：请求外网地址是总是超时。例如像这样：123456789101112const axios = require(&quot;axios&quot;)const request = axios.create(&amp;#123;&amp;#125;);(async function test() &amp;#123;    try &amp;#123;        let res = await requ">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次nodejs外网无法访问的故障">
+<meta property="og:url" content="https://SWPUliusong.github.io/2019/04/10/记一次nodejs外网无法访问的故障/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="前端,html,javascript,css,nodejs">
+<meta property="og:description" content="本人在最近的一次开发过程中，突然出现一个问题：请求外网地址是总是超时。例如像这样：123456789101112const axios = require(&quot;axios&quot;)const request = axios.create(&amp;#123;&amp;#125;);(async function test() &amp;#123;    try &amp;#123;        let res = await requ">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005tsFX0ly1g206eupuoej30d5024t8o.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005tsFX0ly1g207eirhsjj30uq06ujt6.jpg">
+<meta property="og:updated_time" content="2019-04-12T14:12:41.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="前端,html,javascript,css,nodejs">
+<meta name="twitter:title" content="记一次nodejs外网无法访问的故障">
+<meta name="twitter:description" content="本人在最近的一次开发过程中，突然出现一个问题：请求外网地址是总是超时。例如像这样：123456789101112const axios = require(&quot;axios&quot;)const request = axios.create(&amp;#123;&amp;#125;);(async function test() &amp;#123;    try &amp;#123;        let res = await requ">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005tsFX0ly1g206eupuoej30d5024t8o.jpg">
   
     <link rel="alternative" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -144,186 +149,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-记一次nodejs外网无法访问的故障" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记一次nodejs外网无法访问的故障
+    </h1>
+  
+
+        
+        <a href="/2019/04/10/记一次nodejs外网无法访问的故障/" class="archive-article-date">
+  	<time datetime="2019-04-10T10:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人在最近的一次开发过程中，突然出现一个问题：请求外网地址是总是超时。例如像这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> request = axios.create(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="keyword">await</span> request(<span class="string">"https://www.google.com/"</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(res.data)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><img src="http://ww1.sinaimg.cn/large/005tsFX0ly1g206eupuoej30d5024t8o.jpg" alt=""></p>
+<p>这是怎么回事呢？第一反应是我的梯子是失效了，但是youtube、facebook都可以正常打开。</p>
+<p>这是为什么呢？为什么通过nodejs发出的请求没有被代理？让我不禁怀疑难道还要在http和https里单独配置代理才行吗？</p>
+<p>所以我决定从ssr的工作原理中寻找答案，果然在网络某文章上了解了大概</p>
+<blockquote>
+<p>ss/ssr的原理都是socks5代理。它只是简单的传递数据包，把你的网络请求通过一条连接你和代理服务器之间的通道，由服务器转发到目的地</p>
+</blockquote>
+<p>也就是说ss/ssr只是代理socks5，而其他的实现方式则不管</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>既然我们已经知道问题出在那里，所以我们只需要使用socks5的client即可。</p>
+<p>我这里是在<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a>随便搜索的socks5有关的包，之所以选择他们，是因为可以直接和axios结合。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">"axios"</span>)</span><br><span class="line"><span class="keyword">const</span> httpAgent = <span class="built_in">require</span>(<span class="string">"socks5-http-client"</span>).Agent</span><br><span class="line"><span class="keyword">const</span> httpsAgent = <span class="built_in">require</span>(<span class="string">"socks5-https-client/lib/Agent"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> request = axios.create(&#123;</span><br><span class="line">    timeout: <span class="number">5000</span>,</span><br><span class="line">    httpAgent: <span class="keyword">new</span> httpAgent(&#123; <span class="attr">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">    httpsAgent: <span class="keyword">new</span> httpsAgent(&#123; <span class="attr">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> res = <span class="keyword">await</span> request(<span class="string">"https://www.google.com/"</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(res.data)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww1.sinaimg.cn/large/005tsFX0ly1g207eirhsjj30uq06ujt6.jpg" alt=""><br>可以看到，成功打印出了html文件内容，大功告成！！！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/19/构建一个Vue的Img组件/" class="archive-article-date">
-  	<time datetime="2017-12-19T09:01:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/19/构建一个Vue的Img组件/">构建一个Vue的Img组件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://SWPUliusong.github.io/2019/04/10/记一次nodejs外网无法访问的故障/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/18/mongodb条件查询符整理/" class="archive-article-date">
-  	<time datetime="2017-12-18T04:13:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/14/parseInt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手写parseInt</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/18/mongodb条件查询符整理/">mongodb条件查询符整理</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/15/mongodb修改器整理/" class="archive-article-date">
-  	<time datetime="2017-12-15T03:20:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/15/mongodb修改器整理/">mongodb修改器整理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/13/利用hexo构建github-page/" class="archive-article-date">
-  	<time datetime="2017-12-13T12:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/利用hexo构建github-page/">利用hexo构建github page</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github page</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -346,8 +323,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
