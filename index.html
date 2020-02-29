@@ -324,9 +324,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近开发中，因为主要负责了几个后台管理系统，经常遇到导出excel的需求。一番实验，整理几个方法，分享给大家。</p>
-<h2 id="一、创建a标签-模拟点击"><a href="#一、创建a标签-模拟点击" class="headerlink" title="一、创建a标签,模拟点击"></a>一、创建a标签,模拟点击</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式化参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatParams</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> params !== <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(<span class="built_in">Object</span>.keys(params).map(<span class="function"><span class="params">key</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;params[key]&#125;</span>`</span>).join(<span class="string">'&amp;'</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, params</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建a标签</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>)</span><br><span class="line">    <span class="comment">// 设置url</span></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">        url += <span class="string">'?'</span> + formatParams(params)</span><br><span class="line">    &#125;</span><br><span class="line">    a.href = url</span><br><span class="line">    <span class="comment">// 添加到dom中模拟点击,IE浏览器不添加会失败</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(a);</span><br><span class="line">    a.click();</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式最为常见，也比较简单，但是他的缺点也非常明显——<strong><em>只能<code>GET</code>请求下载</em></strong><br>之前,就因为他只能get请求，参数全部挂在url上,导致我们在导出大量数据时,url过长，浏览器直接崩溃.这时,我们就必须使用<code>POST</code>请求了</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在最近开发中，因为主要负责了几个后台管理系统，经常遇到下载文件的需求。今天对比几种常见的下载方式，分享给大家。</p>
+<h2 id="一、打开新窗口下载"><a href="#一、打开新窗口下载" class="headerlink" title="一、打开新窗口下载"></a>一、打开新窗口下载</h2><p>这种方式最为常见，代码量也最少</p>
+<p>代码实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式化参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatParams</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> params !== <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(<span class="built_in">Object</span>.keys(params).map(<span class="function"><span class="params">key</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;params[key]&#125;</span>`</span>).join(<span class="string">'&amp;'</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, params</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 设置url</span></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">        url += <span class="string">'?'</span> + formatParams(params)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.open(url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到它的核心是利用window对象的open方法，去打开一个新页面，进而触发下载操作。优点很明显，就是代码量极少；但是缺点也很突出，只能通过get方式下载，且在多次触发时浏览器会弹出多个新窗口，体验不佳。</p>
+<h2 id="二、创建a标签-模拟点击"><a href="#二、创建a标签-模拟点击" class="headerlink" title="二、创建a标签,模拟点击"></a>二、创建a标签,模拟点击</h2><p>这种方式的思路很简单，就是创建a标签，把下载链接赋给它的href属性，然后触发点击事件。</p>
+<p>下面就是代码的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式化参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatParams</span>(<span class="params">params</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> params !== <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(<span class="built_in">Object</span>.keys(params).map(<span class="function"><span class="params">key</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;params[key]&#125;</span>`</span>).join(<span class="string">'&amp;'</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, params</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建a标签</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>)</span><br><span class="line">    <span class="comment">// 设置url</span></span><br><span class="line">    <span class="keyword">if</span> (params) &#123;</span><br><span class="line">        url += <span class="string">'?'</span> + formatParams(params)</span><br><span class="line">    &#125;</span><br><span class="line">    a.href = url</span><br><span class="line">    <span class="comment">// 必须添加此属性，不然在多次下载时，不能触发下载操作</span></span><br><span class="line">    a.download = <span class="string">"download"</span></span><br><span class="line">    <span class="comment">// 添加到dom中模拟点击,IE浏览器不添加会失败</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(a);</span><br><span class="line">    a.click();</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，这种方式比较直观，但是他的缺点也非常明显——还是 <strong><em>只能<code>GET</code>请求下载</em></strong><br>,之前就因为他只能get请求，参数全部挂在url上,导致我们在导出大量数据时,url过长，浏览器直接崩溃.这时,我们就必须使用<code>POST</code>请求了</p>
+<p>post的方式无非两种：表单post提交、ajax请求；接下来让我们一一查看<br>
         
           <a class="article-more-a" href="/2018/03/19/前端下载文件的几种方式/#more">more >></a>
         
@@ -846,7 +851,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 SWPUliusong
+    		&copy; 2020 SWPUliusong
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -921,6 +926,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -934,14 +947,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
