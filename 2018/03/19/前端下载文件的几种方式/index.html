@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://SWPUliusong.github.io/2018/03/19/前端下载文件的几种方式/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="前言在最近开发中，因为主要负责了几个后台管理系统，经常遇到下载文件的需求。今天对比几种常见的下载方式，分享给大家。 一、打开新窗口下载这种方式最为常见，代码量也最少 代码实现：1234567891011121314// 格式化参数function formatParams(params) &amp;#123;    if (typeof params !== &quot;object&quot;) &amp;#123;">
-<meta property="og:updated_time" content="2020-02-29T15:04:05.444Z">
+<meta property="og:updated_time" content="2020-02-29T15:22:45.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端下载文件的几种方式">
 <meta name="twitter:description" content="前言在最近开发中，因为主要负责了几个后台管理系统，经常遇到下载文件的需求。今天对比几种常见的下载方式，分享给大家。 一、打开新窗口下载这种方式最为常见，代码量也最少 代码实现：1234567891011121314// 格式化参数function formatParams(params) &amp;#123;    if (typeof params !== &quot;object&quot;) &amp;#123;">
@@ -184,7 +184,34 @@
 <p>大致的思路是设置ajax返回数据的类型为<code>Blob</code>，然后利用<code>URL.createObjectURL()</code>方法根据Blob数据创建一个它的url，最后利用a标签下载。</p>
 <p>这里要注意的是，前端无法直接通过<code>xhr.getResponseHeader(&quot;content-disposition&quot;)</code>获取到响应头中content-disposition的值，需要后段在响应头中加一个<code>&quot;Access-Control-Expose-Headers&quot;: &quot;Content-Disposition&quot;</code>才行</p>
 <p>这种方式的缺陷就是支持度不太行，<code>URL.createObjectURL()</code>仅支持IE10以上, 而<code>xhr.responseType</code>仅支持IE12以上</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后我们来总结一下四种方法的优缺点<br>|     | window.open | a标签 | form表单 | ajax |<br>| — | —- | —- | —- | —- |<br>| 优点 | 1.代码量最少，思路简单<br>2.浏览器支持度高 | 1.代码量少，思路简单<br>2.浏览器支持度高 | 1.可以使用get、post方法<br>2.浏览器支持度高 | 1.可以使用get、post方法<br>2.可以支持复杂的参数结构 |<br>| 缺点 | 1.只支持get方式下载，参数都在url上，过多会导致窗口崩溃；<br>2.下载多个时，会打开多个窗口，影响体验 | 只支持get方式下载，参数都在url上，过多会导致窗口崩溃 | 1.代码量较大，实现较为复杂<br>2.无法支持较复杂的数据结构 | 1.代码量较大，实现较为复杂<br>2.浏览器支持度比较低 |</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后我们来总结一下四种方法的优缺点</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>window.open</th>
+<th>a标签</th>
+<th>form表单</th>
+<th>ajax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>1.代码量最少，思路简单<br>2.浏览器支持度高</td>
+<td>1.代码量少，思路简单<br>2.浏览器支持度高</td>
+<td>1.可以使用get、post方法<br>2.浏览器支持度高</td>
+<td>1.可以使用get、post方法<br>2.可以支持复杂的参数结构</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1.只支持get方式下载，参数都在url上，过多会导致窗口崩溃；<br>2.下载多个时，会打开多个窗口，影响体验</td>
+<td>只支持get方式下载，参数都在url上，过多会导致窗口崩溃</td>
+<td>1.代码量较大，实现较为复杂<br>2.无法支持较复杂的数据结构</td>
+<td>1.代码量较大，实现较为复杂<br>2.浏览器支持度比较低</td>
+</tr>
+</tbody>
+</table>
 
       
 
